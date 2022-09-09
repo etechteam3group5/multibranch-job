@@ -3,14 +3,30 @@ pipeline {
     stages{
         stage('system statistics and Jenkins status check'){
             parallel{
-                stage('systems statistics'){
+                stage('Max'){
                     steps{
                         sh "lscpu"
+                         sh "sudo systemctl status jenkins"
                     }
                 }
-                stage('Jenkins status check'){
+                stage('Chima'){
                     steps{
-                        sh "grep -i jenkins /etc/passwd"
+                        sh "lscpu"
+                        sh "sudo systemctl status jenkins"
+                    }
+                }
+            }
+            parallel{
+                stage('Christiana'){
+                    steps{
+                        sh "lscpu"
+                         sh "sudo systemctl status jenkins"
+                    }
+                }
+                stage('Tunde'){
+                    steps{
+                        sh "lscpu"
+                        sh "sudo systemctl status jenkins"
                     }
                 }
             }
