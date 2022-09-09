@@ -33,7 +33,7 @@ pipeline {
         }
         stage('End of parallel build'){
             steps{
-                echo "End of pipeline"
+                echo "End of multi-branch-build pipeline"
             }
         }
     }
