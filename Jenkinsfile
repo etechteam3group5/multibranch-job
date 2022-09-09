@@ -1,17 +1,25 @@
 pipeline{
 	agent any
 	stages{
+        stage('Clone Repository'){
+					steps{
+						checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-id', url: 'https://github.com/etechteam3group5/multibranch-job.git']]])
+					}
+				}
 		stage('parallel-level1'){
 			parallel{
 				stage('Max'){
 					steps{
-						checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-id', url: 'https://github.com/ChimaDevops/GroupJenkinsParalleljob.git']]])
 						echo "sub-job1 tasks and commands and actions"
+						sh "lscpu"
+                        sh "sudo systemctl status jenkins"
 					}
 				}
 				stage('Chima'){
 					steps{
 						echo "sub-job2 tasks and commands and actions"
+						sh "lscpu"
+                        sh "sudo systemctl status jenkins"
 					}
 				}
 			}
@@ -21,11 +29,15 @@ pipeline{
 				stage('Chizoba'){
 					steps{
 						echo "sub-job3 tasks and commands and actions"
+						sh "lscpu"
+                        sh "sudo systemctl status jenkins"
 					}
 				}
 				stage('Christiana'){
 					steps{
 						echo "sub-job4 tasks and commands and actions"
+						sh "lscpu"
+                        sh "sudo systemctl status jenkins"
 					}
 				}
 			}
@@ -35,11 +47,15 @@ pipeline{
 				stage('Gregory'){
 					steps{
 						echo "sub-job5 tasks and commands and actions"
+						sh "lscpu"
+                        sh "sudo systemctl status jenkins"
 					}
 				}
 				stage('Tunde'){
 					steps{
 						echo "sub-job6 tasks and commands and actions"
+						sh "lscpu"
+                        sh "sudo systemctl status jenkins"
 					}
 				}
 			}
@@ -49,18 +65,22 @@ pipeline{
 				stage('Valentine'){
 					steps{
 						echo "sub-job7 tasks and commands and actions"
+						sh "lscpu"
+                        sh "sudo systemctl status jenkins"
 					}
 				}
 				stage('Wasiu'){
 					steps{
 						echo "sub-job8 tasks and commands and actions"
+						sh "lscpu"
+                        sh "sudo systemctl status jenkins"
 					}
 				}
 			}
 		}
-		stage('status on wed check1'){
+		stage('End of Pipeline'){
 			steps{
-				echo "end of multi-branch job"
+				echo "end of parallel job"
 			}
 		}
 	}	
